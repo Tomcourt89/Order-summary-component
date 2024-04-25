@@ -1,0 +1,170 @@
+:root {
+    --pale-blue: hsl(225, 100%, 94%);
+    --bright-blue: hsl(245, 75%, 52%);
+    --very-pale-blue: hsl(225, 100%, 98%);
+    --desaturated-blue: hsl(224, 23%, 55%);
+    --dark-blue: hsl(223, 47%, 23%);
+    --purple: hsl(245, 83%, 68%);
+    --white: #ffffff;
+
+    --text-xl: 1.375rem;
+    --text-base: 0.9375rem;
+    --text-sm: 0.875rem;
+    --text-xs: 0.8125rem;
+
+    @media (width >= 40em) {
+        --text-xl: 1.75rem;
+        --text-base: 1rem;
+        --text-xs: 0.9375rem;
+    }
+}
+
+*,
+::before,
+::after {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    display: grid;
+    height: 100vh;
+    place-items: center;
+    grid-template-rows: 90% 1fr;
+    font-family: "Red Hat Display", sans-serif;
+    color: var(--desaturated-blue);
+    background: top / contain no-repeat url(../images/pattern-background-mobile.svg) var(--pale-blue);
+
+    @media (width >= 40em) {
+        background: top / contain no-repeat url(../images/pattern-background-desktop.svg) var(--pale-blue);
+    }
+}
+
+article {
+    max-width: 450px;
+    margin: 24px;
+    background: var(--white);
+    border-radius: 20px;
+    overflow: hidden;
+
+    img {
+        width: 100%;
+        
+    }
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    padding: 32px 24px;
+    gap: 24px;
+    text-align: center;
+
+    h2 {
+        font-size: var(--text-xl);
+        font-weight: 900;
+        color: var(--dark-blue);
+    }
+
+    > p {
+        font-size: var(--text-base);
+        line-height: 1.5625rem;
+        font-weight: 500;
+        padding: 0 8px;
+    }
+
+    button {
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-size: var(--text-base);
+        font-weight: 700;
+
+        &.proceed {
+            background: var(--bright-blue);
+            color: var(--white);
+            padding-block: 15px;
+            border-radius: 11px;
+            box-shadow: 0px 20px 20px 0 hsla(245, 75%, 52%, 0.2);
+            transition: background ease 0.5s;
+
+            &:hover,
+            &:focus {
+                background: var(--purple);
+            }
+        }
+
+        &.cancel {
+            color: var(--desaturated-blue);
+            transition: color ease 0.5s;
+
+            &:hover,
+            &:focus {
+                color: var(--dark-blue);
+            }
+        }
+    }
+
+    @media (width >= 40em) {
+        padding: 48px;
+
+        .proceed {
+            margin-bottom: 8px;
+        }
+    }
+}
+
+.plan {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: left;
+    background: var(--very-pale-blue);
+    border-radius: 11px;
+    padding: 16px;
+    position: relative;
+
+    > div {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+
+        &::before {
+            content: url(../images/icon-music.svg);
+        }
+    }
+
+    h3 {
+        font-size: var(--text-sm);
+        color: var(--dark-blue);
+        font-weight: 900;
+        margin-bottom: 3px;
+    }
+
+    p {
+        font-size: var(--text-sm);
+        font-weight: 500;
+    }
+
+    a {
+        font-size: var(--text-xs);
+        font-weight: 700;
+        color: var(--bright-blue);
+        transition: ease 0.5s;
+
+        &:hover,
+        &:focus {
+            color: var(--purple);
+            text-decoration: none;
+        }
+    }
+
+    @media (width >= 40em) {
+        margin-bottom: 8px;
+        
+        a {
+            font-size: var(--text-sm);
+        }
+    }
+}
